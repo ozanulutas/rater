@@ -2,6 +2,8 @@
 
 ## To Run the Project via Docker
 
+In the project directory:
+
 ### `npm run docker-compose-up`
 
 Runs the app in the development mode.\
