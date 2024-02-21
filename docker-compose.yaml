@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  react-app:
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - graphql-faker-server
+
+  graphql-faker-server:
+    image: apisguru/graphql-faker:latest
+    command: "schema.graphql"
+    volumes:
+      - ${PWD}/schema.graphql:/workdir/schema.graphql
+    ports:
+      - 9002:9002

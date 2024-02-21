@@ -1,0 +1,24 @@
+type Employee {
+  id: ID
+  firstName: String @fake(type: firstName, locale: en_CA)
+  lastName: String @fake(type: lastName, locale: en_CA)
+  address: Address
+  imgUrl: String @fake(type: imageUrl)
+  jobTitle: String @fake(type: jobTitle)
+  rating: Int @fake(type: number, options: { minNumber: 0, maxNumber: 10 })
+  email: String @fake(type: email)
+  phoneNumber: String @fake(type: phoneNumber)
+}
+
+type Address {
+  street: String @fake(type: streetName)
+  number: Int @examples(values: [303, 409])
+  city: String @fake(type: city)
+  state: String @fake(type: stateAbbr)
+  country: String @fake(type: country)
+}
+
+type Query {
+  employee(id: ID): Employee
+  employees: [Employee]
+}
